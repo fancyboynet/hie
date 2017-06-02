@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Front End Integrated Solution for python flask.",
   "bin": {
-    "hie": "bin/hie"
+    "hie": "bin/hie.js"
   },
   "main": "index.js",
   "scripts": {
