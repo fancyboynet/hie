@@ -1,0 +1,19 @@
+{
+  "name": "hie",
+  "version": "0.0.1",
+  "description": "Front End Integrated Solution for python flask.",
+  "bin": {
+    "hie" : "bin/hie"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fis3",
+    "python",
+    "flask"
+  ],
+  "author": "Fancy <fancyboynet@gmail.com>",
+  "license": "ISC"
+}
