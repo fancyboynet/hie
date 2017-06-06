@@ -24,7 +24,9 @@ cli.launch({
   } else {
     fis = require(env.modulePath);
   }
-  fis.set('system.localNPMFolder', path.join(env.cwd, 'node_modules/hie'));
-  fis.set('system.globalNPMFolder', path.dirname(__dirname));
+  fis.require.paths.unshift(path.join(env.cwd, 'node_modules'));
+  fis.require.paths.push(path.join(path.dirname(__dirname), 'node_modules'));
+  fis.require.paths.push(path.join(path.join(path.dirname(__dirname), 'node_modules', 'fis3', 'node_modules')));
+  fis.initConfig(process.cwd().replace(/.*\/([^/]+)$/, '$1'))
   fis.cli.run(argv, env);
 });
