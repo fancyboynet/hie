@@ -21,6 +21,7 @@ fis.initConfig = function (cwd) {
     fis.set('project.ignore', fis.get('project.ignore').concat([
         'package.json',
         '.gitignore',
+        'README.md',
         'config/**',
         'test/**'
     ]))
