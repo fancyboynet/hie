@@ -1,11 +1,13 @@
 # hie
-基于fis3和Flask框架的前端解决方案
+基于fis3和Flask框架的前端解决方案,直接采用jinja2模板开发,前端不再需要"套模板"
 
 ## 安装
 
     npm install hie -g
     
 ## 使用
+
+整套方案是基于[pip-fis](https://github.com/fancyboynet/pip-fis)的,请先阅读
 
 1.初始化运行框架
 
@@ -19,28 +21,9 @@
     . venv/bin/activate
     pip install -r requirements.txt 
     
-2.已经有框架的只要安装pip依赖即可
+2.已经有框架的只要安装pip依赖即可  
 
-    pip install FIS
-    
-2.替代Flask的*render_template*,采用FIS来渲染模板  
-下面是一个带有蓝图的demo,具体可以参考[这里](git@github.com:fancyboynet/hie-framework-scaffold.git)
-
-    from flask import Flask
-    from fis3 import FIS
-    import config
-    from blueprints import www, m
-    
-    app = Flask(__name__)
-    app.config.from_object(config)
-    app.register_blueprint(www)
-    app.register_blueprint(m)
-    
-    FIS(app, static_folder=config.FIS_STATIC_FOLDER, template_folder=config.FIS_STATIC_FOLDER, debug=config.FIS_DEBUG)
-    
-    
-    if __name__ == '__main__':
-        app.run()
+    pip install fis3
     
 3.初始化具体应用  
 [单个应用的目录规范](https://github.com/fex-team/fis3/blob/master/doc/docs/api/config-commonly-used.md#制定目录规范).例如,新建一个www的应用
@@ -53,14 +36,18 @@
 4.开发  
 
     cd www
-    npm run dev
+    hie release -wLc
+    
     
 5.发布
     
     cd www
-    npm run prod
+    hie release prod -c
     
-6.自定义  
+6.模板语法
+因为要收集页面的静态资源,所以模板需要采用扩展的语法,[参考](https://github.com/fancyboynet/pip-fis#扩展jinja2)
+    
+7.自定义构建配置 
 默认是采用[fis3-postpackager-loader](https://github.com/fex-team/fis3-postpackager-loader)基于页面的打包,如果想用自己的配置,只要修改对应应用下的fis-conf.js文件
 
     fis.set('outputRoot', '../') //输出目录
