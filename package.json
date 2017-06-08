@@ -1,6 +1,6 @@
 {
   "name": "hie",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Front End Integrated Solution for python flask.",
   "bin": {
     "hie": "bin/hie.js"
