@@ -5,6 +5,8 @@ fis.cli.name = 'hie';
 fis.cli.info = require('./package.json');
 
 fis.initConfig = function (cwd) {
+    fis.hook('commonjs');
+    
     if(cwd === 'static-src'){
         fis.set('namespace', '')
         fis.set('outputRoot', '../') //输出目录
