@@ -84,6 +84,11 @@ fis.initConfig = function (cwd) {
         ]
     })
 
+//静态引用增加url前缀
+    fis.match('*.{png,gif,jpg,jpeg,eot,ttf,woff,svg,json}', {
+        url : '${staticUrlPrefix}${staticRoot}/${namespace}$0'
+    })
+
 //babel
     fis.match('/{page,widget}/**.js', {
         parser: fis.plugin('babel-5.x', {
@@ -132,9 +137,6 @@ fis.initConfig = function (cwd) {
                 }
             })
         })
-        .match('*.{png,gif,jpg,jpeg,eot,ttf,woff,svg,json}', { //静态引用增加url前缀
-            url : '${staticUrlPrefix}/${staticRoot}/${namespace}/$0'
-        })
         .match('*.css', {
             useSprite: true,
             optimizer: fis.plugin('clean-css', {
@@ -143,6 +145,9 @@ fis.initConfig = function (cwd) {
         })
         .match('*.png', {
             optimizer: fis.plugin('png-compressor')
+        })
+        .match('!page/**.html', {
+            loaderLang: false
         })
         .match('::package', {
             postpackager: fis.plugin('loader', {
