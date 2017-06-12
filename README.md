@@ -55,4 +55,29 @@
     fis.set('tplRoot', 'templates')//模板目录
     fis.set('staticUrlPrefix', '/')//静态资源前缀
 
-       
+## 数据模拟
+考虑到使用该解决方案需要有一定的python基础,所以暂时决定直接使用flask框架的路由接口,学习成本也很小
+
+```
+
+from flask import jsonify
+
+@app.route('/data')
+def get_data():
+    # todo
+    return jsonify({
+        'name': 'hello'
+    })
+        
+```
+
+```
+
+import $ from 'jquery'
+$('#btn-get-data').on('click', function () {
+    $.ajax('/data').done(function (data) {
+        $('#data').append(data.name)
+    })
+})
+    
+```
