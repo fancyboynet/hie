@@ -127,6 +127,9 @@ fis.initConfig = function (cwd) {
         .match('/{page,widget,pkg}/**', {
             useHash : true
         })
+        .match('/{static}/**/*.{png,jpg,jpeg,gif}', {
+            useHash : true
+        })
         .match('/{page,widget}/**.html', {
             useHash : false
         })
