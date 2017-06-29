@@ -121,13 +121,12 @@ fis.initConfig = function (cwd) {
             to: fis.get('outputRoot')
         })
     })
-
 // pack
     fis.media('prod')
         .match('/{page,widget,pkg}/**', {
             useHash : true
         })
-        .match('/{static}/**/*.{png,jpg,jpeg,gif}', {
+        .match('/static/**/*.{png,gif,jpg,jpeg}', {
             useHash : true
         })
         .match('/{page,widget}/**.html', {
