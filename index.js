@@ -32,11 +32,8 @@ fis.initConfig = function (cwd) {
 // 所有的文件产出到 {static} 目录下
     fis.match('*', {
         release: '${staticRoot}/${namespace}/$0',
+        url : '${staticUrlPrefix}/${namespace}$0',
         useHash : false
-    })
-
-    fis.match('config/**', {
-        release : false
     })
 
 // 所有模板放到 {tpl} 目录下
@@ -84,10 +81,6 @@ fis.initConfig = function (cwd) {
             })
         ]
     })
-//静态引用增加url前缀
-    fis.match('*.{js,css,es,es6,png,gif,jpg,jpeg,eot,ttf,woff,svg,json}', {
-        url : '${staticUrlPrefix}/${namespace}$0'
-    })
 
 //babel
     fis.match('/{page,widget}/**.js', {
@@ -107,6 +100,14 @@ fis.initConfig = function (cwd) {
             blacklist: ["useStrict"]
         })
     })
+
+// 前端模板
+    fis.match('**.tpl', {
+        release : false,
+        parser: fis.plugin('utc'), // invoke `fis-parser-utc`,
+        isJsLike: true,
+        isMod:false //避免被当作组件包装
+    });
 
 
 // 禁用components

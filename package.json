@@ -1,6 +1,6 @@
 {
   "name": "hie",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Front End Integrated Solution for python flask.",
   "bin": {
     "hie": "bin/hie.js"
@@ -18,7 +18,6 @@
   "license": "ISC",
   "dependencies": {
     "fis-parser-babel-5.x": "^1.4.0",
-    "fis-parser-utc": "0.0.2",
     "fis-postprocessor-autoprefixer": "0.0.5",
     "fis3": "^3.4.32",
     "fis3-hook-commonjs": "^0.1.26",
