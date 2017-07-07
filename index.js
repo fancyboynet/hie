@@ -18,7 +18,8 @@ fis.initConfig = function (cwd) {
     fis.config.set('namespace', fis.get('namespace'));
     fis.set('staticRoot', 'static')//静态资源目录
     fis.set('tplRoot', 'templates')//模板目录
-    fis.set('staticUrlPrefix', '/')//静态资源前缀
+    fis.set('staticUrlPrefix', '/static')//静态资源前缀
+
 //排除不需要产出的目录
     fis.set('project.ignore', fis.get('project.ignore').concat([
         'package.json',
@@ -83,10 +84,9 @@ fis.initConfig = function (cwd) {
             })
         ]
     })
-
 //静态引用增加url前缀
-    fis.match('*.{png,gif,jpg,jpeg,eot,ttf,woff,svg,json}', {
-        url : '${staticUrlPrefix}${staticRoot}/${namespace}$0'
+    fis.match('*.{js,css,es,es6,png,gif,jpg,jpeg,eot,ttf,woff,svg,json}', {
+        url : '${staticUrlPrefix}/${namespace}$0'
     })
 
 //babel
